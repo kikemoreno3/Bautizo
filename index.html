@@ -4,77 +4,139 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>El Bautizo de Gael</title>
   <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background-color: #fefefe;
       color: #333;
     }
+    nav {
+      position: sticky;
+      top: 0;
+      background: #e0f2ff;
+      padding: 10px 0;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    nav a {
+      text-decoration: none;
+      color: #336699;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
     header {
       background: linear-gradient(to right, #cce7ff, #e6f2ff);
-      padding: 40px 20px;
       text-align: center;
+      padding: 60px 20px 40px;
     }
     header img {
-      max-width: 180px;
+      max-width: 160px;
       border-radius: 50%;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
     h1 {
       margin: 0;
-      font-size: 2em;
+      font-size: 2.5em;
+      color: #2b4f77;
     }
     section {
-      padding: 30px 20px;
-      max-width: 800px;
+      padding: 40px 20px;
+      max-width: 900px;
       margin: auto;
     }
     h2 {
-      border-bottom: 2px solid #ddd;
+      border-bottom: 2px solid #eee;
       padding-bottom: 10px;
       margin-bottom: 20px;
       color: #336699;
     }
-    .detalles p, .historia p, .agradecimientos p {
+    p {
       line-height: 1.6;
+      font-size: 1.05em;
     }
     .galeria {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 15px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
     }
     .galeria img {
       width: 100%;
-      border-radius: 10px;
+      border-radius: 12px;
+      transition: transform 0.3s;
+    }
+    .galeria img:hover {
+      transform: scale(1.05);
     }
     footer {
       text-align: center;
       padding: 20px;
+      background: #f0f8ff;
       font-size: 0.9em;
-      background-color: #f0f0f0;
+      margin-top: 40px;
+    }
+    .btn-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #4da6ff;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      display: none;
+    }
+    .btn-top.show {
+      display: block;
     }
   </style>
 </head>
 <body>
-  <header>
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#detalles">Detalles</a>
+    <a href="#fotos">Fotos</a>
+    <a href="#historia">Historia</a>
+    <a href="#gracias">Gracias</a>
+  </nav>  <header id="inicio">
     <img src="https://via.placeholder.com/180x180.png?text=Gael" alt="Foto de Gael">
     <h1>El Bautizo de Gael</h1>
-  </header>  <section class="detalles">
+  </header>  <section id="detalles">
     <h2>Detalles del Evento</h2>
-    <p><strong>Iglesia:</strong> Parroquia San Lorenzo</p>
-    <p><strong>Hora:</strong> 13:30h</p>
-    <p><strong>Celebración:</strong> Ribera Moriles, 15:00h</p>
-  </section>  <section class="galeria">
+    <p><strong>Iglesia:</strong> Nuestra Señora del Cielo</p>
+    <p><strong>Hora:</strong> Mediodía</p>
+    <p><strong>Celebración:</strong> Jardines de la Alegría</p>
+  </section>  <section id="fotos">
     <h2>Galería de Fotos</h2>
-    <p>(Próximamente podrás ver aquí los mejores momentos del día)</p>
-  </section>  <section class="historia">
+    <div class="galeria">
+      <img src="https://via.placeholder.com/300x200.png?text=Foto+1" alt="Foto 1">
+      <img src="https://via.placeholder.com/300x200.png?text=Foto+2" alt="Foto 2">
+      <img src="https://via.placeholder.com/300x200.png?text=Foto+3" alt="Foto 3">
+    </div>
+  </section>  <section id="historia">
     <h2>Historia del Día</h2>
-    <p>El 1 de junio de 2025 fue un día muy especial para nuestra familia. Rodeados de amor y felicidad, celebramos el bautizo de Gael en un ambiente lleno de emociones, sonrisas y recuerdos imborrables.</p>
-  </section>  <section class="agradecimientos">
-    <h2>Agradecimientos</h2>
-    <p>Gracias a todos los que nos acompañasteis en este día tan importante. Cada uno de vosotros hizo que el bautizo de Gael fuera inolvidable.</p>
+    <p>Fue un día lleno de emoción y alegría. Familiares y amigos se reunieron para celebrar el bautizo de Gael. Fue un momento mágico que siempre llevaremos en el corazón.</p>
+  </section>  <section id="gracias">
+    <h2>Gracias</h2>
+    <p>Queremos agradecer sinceramente a todos los que compartieron este día tan especial con nosotros. Vuestra presencia hizo que el bautizo de Gael fuera aún más inolvidable.</p>
   </section>  <footer>
-    Hecho con mucho cariño por papá y mamá de Gael.
-  </footer>
-</body>
+    Hecho con amor por papá y mamá de Gael.
+  </footer><button class="btn-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑ Volver arriba</button>
+
+  <script>
+    const btn = document.querySelector('.btn-top');
+    window.addEventListener('scroll', () => {
+      btn.classList.toggle('show', window.scrollY > 300);
+    });
+  </script></body>
 </html>
